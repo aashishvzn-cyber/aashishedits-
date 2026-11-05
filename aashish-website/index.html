@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aashish | Video Editor in Chennai: Reels, Product Films, Podcasts</title>
+<meta name="description" content="Aashish is a video editor in Chennai. Reels, product films and podcasts for brands, businesses and creators. Reels in 24–48 hours.">
+<meta name="theme-color" content="#050505">
+<!-- link preview for WhatsApp, Instagram, LinkedIn, X -->
+<!-- shortcut: og:image is relative; once the site has a domain, make it absolute (https://yourdomain/images/share.jpg) or WhatsApp won't show the picture -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aashish | Video Editor in Chennai">
+<meta property="og:description" content="Reels, product films and podcasts for brands, businesses and creators. Reels in 24–48 hours.">
+<meta property="og:image" content="images/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<!-- tab icon: red film reel -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23050505'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23FF2E2E'/%3E%3Cg fill='%23050505'%3E%3Ccircle cx='32' cy='19' r='5.5'/%3E%3Ccircle cx='44.4' cy='28' r='5.5'/%3E%3Ccircle cx='39.6' cy='42.5' r='5.5'/%3E%3Ccircle cx='24.4' cy='42.5' r='5.5'/%3E%3Ccircle cx='19.6' cy='28' r='5.5'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='3' fill='%23EEE9E2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#050505; --panel:#121212; --bone:#EEE9E2; --smoke:#8C877F; --rec:#FF2E2E;
+  --edge:rgba(255,255,255,.14);
+  --display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--black);color:var(--bone);font:400 1.0625rem/1.72 var(--body);overflow-x:hidden;padding-bottom:3.25rem}
+/* a soft dark halo keeps text readable where it crosses the red 3D rings behind it */
+main p,main h2,main h3,main summary,.hero-text p,.facts span{text-shadow:0 1px 14px rgba(5,5,5,.95),0 0 3px rgba(5,5,5,.8)}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--rec);outline-offset:3px}
+.wrap{max-width:76rem;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:.95;margin:0;letter-spacing:-.005em;text-transform:uppercase}
+h2{font-size:clamp(2.6rem,8vw,5.5rem);margin-bottom:2rem}
+h3{font-size:1.6rem;line-height:1.05}
+p{margin:0 0 1rem;max-width:62ch}
+.muted{color:var(--smoke)}
+section{padding:clamp(4rem,10vw,7.5rem) 0}
+
+/* film grain */
+.grain{position:fixed;inset:-50%;z-index:50;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}}
+
+/* smoked-glass button, like a tinted monitor: grain inside, one crisp top highlight, a playhead sweep on hover, a real press on click */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:.7rem;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;font:500 1rem var(--display);letter-spacing:.04em;color:var(--bone);
+  background:linear-gradient(180deg,rgba(44,44,46,.94),rgba(17,17,19,.96));border:1px solid rgba(255,255,255,.1);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.6),0 8px 18px -10px rgba(0,0,0,.9);
+  transition:border-color .3s,transform .08s,box-shadow .08s}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:.22;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-4px;width:2px;pointer-events:none;background:var(--rec);box-shadow:0 0 8px rgba(255,46,46,.7);
+  opacity:0;transition:left .7s cubic-bezier(.45,0,.2,1),opacity .2s}
+.btn:hover{border-color:rgba(255,255,255,.22)}
+.btn:hover::after{left:calc(100% + 4px);opacity:1}
+.btn.rec::after{background:var(--bone);box-shadow:0 0 8px rgba(255,255,255,.6)} /* a red line would vanish on the red button */
+.btn:active{transform:translateY(1px);box-shadow:inset 0 2px 7px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.06)}
+.btn svg{width:1rem;height:1rem;transition:transform .25s}
+.btn:hover svg{transform:translate(2px,-2px)}
+.btn.rec{background:linear-gradient(180deg,#c81b1b,#9e0f0f);border-color:rgba(255,140,140,.35)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;padding:.9rem 0;transition:background .3s}
+nav.solid{background:rgba(5,5,5,.92);border-bottom:1px solid var(--edge)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:1.5rem;text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--rec);box-shadow:0 0 12px var(--rec);animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.links{display:flex;gap:1.6rem;font:500 .95rem var(--display);letter-spacing:.06em;text-transform:uppercase}
+.links a{text-decoration:none;color:var(--smoke);transition:color .2s}
+.links a:hover{color:var(--bone)}
+.tc{font:500 .85rem var(--display);font-variant-numeric:tabular-nums;color:var(--smoke)}
+/* 3D ring sculpture: fixed background layer behind the whole site, dimmed so text stays readable */
+.rings{position:fixed;inset:0;width:100vw;height:100svh;z-index:0;pointer-events:none;opacity:.55}
+.hero,.marquee,.facts,main,footer{position:relative;z-index:1}
+/* 3D reel badge: hangs a little below the bar (negative margins keep the bar height unchanged); click = back to top */
+.reelbadge{display:block;width:4.6rem;height:4.6rem;margin:-.5rem -.4rem -1.6rem 0;border-radius:50%;
+  filter:drop-shadow(0 10px 18px rgba(255,46,46,.35));transition:transform .3s}
+.reelbadge:hover{transform:scale(1.08)}
+.reelbadge{cursor:grab;touch-action:none}.reelbadge:active{cursor:grabbing}
+.reelbadge canvas{display:block;width:100%;height:100%}
+@media(max-width:760px){.links{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;padding:7rem 0 3.5rem;overflow:hidden}
+/* camera viewfinder around the photo: four corner marks and a REC light, sized from the photo's own height (--H) */
+.vf{--H:min(88svh,60rem);position:absolute;z-index:3;left:55%;translate:-50% 0;bottom:calc(var(--H) * .22);width:calc(var(--H) * .6);height:calc(var(--H) * .66);pointer-events:none;
+  --c:rgba(238,233,226,.85);--l:clamp(18px,2.4vw,30px);
+  background:linear-gradient(var(--c),var(--c)) 0 0/var(--l) 2px,linear-gradient(var(--c),var(--c)) 0 0/2px var(--l),
+    linear-gradient(var(--c),var(--c)) 100% 0/var(--l) 2px,linear-gradient(var(--c),var(--c)) 100% 0/2px var(--l),
+    linear-gradient(var(--c),var(--c)) 0 100%/var(--l) 2px,linear-gradient(var(--c),var(--c)) 0 100%/2px var(--l),
+    linear-gradient(var(--c),var(--c)) 100% 100%/var(--l) 2px,linear-gradient(var(--c),var(--c)) 100% 100%/2px var(--l);
+  background-repeat:no-repeat;opacity:0;animation:fadeup 1.2s .9s cubic-bezier(.2,.8,.2,1) forwards}
+.vf span{position:absolute;top:.7rem;left:.8rem;padding:.2rem .55rem;border-radius:3px;background:rgba(5,5,5,.75);font:600 .8rem/1.2 var(--display);letter-spacing:.14em;color:var(--bone)}
+.vf span::before{content:"";display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:var(--rec);margin-right:.45rem;vertical-align:.05em;animation:blink 1.4s steps(2) infinite}.hero .wrap{position:relative;z-index:3;width:100%}
+.bigword{position:absolute;z-index:1;left:0;right:0;top:clamp(5rem,14vh,9rem);text-align:center;font:700 clamp(5rem,20.5vw,24rem)/1 var(--display);white-space:nowrap;overflow:hidden;padding:.04em 0 .06em;will-change:transform}
+/* gradient lives on each letter: clipping it on the parent breaks while the letters animate */
+.bigword span{display:inline-block;background:linear-gradient(180deg,#ff3b3b 10%,#8f0d0d 95%);-webkit-background-clip:text;background-clip:text;color:transparent;transform:translateY(110%);animation:rise 2s cubic-bezier(.16,1,.3,1) forwards;animation-delay:calc(var(--i)*.11s + .2s)}
+@keyframes rise{to{transform:none}}
+.cutout{position:absolute;z-index:2;left:55%;bottom:0;translate:-50% 0;height:min(88svh,60rem);width:auto;max-width:none;
+  -webkit-mask-image:linear-gradient(#000 82%,transparent 100%);mask-image:linear-gradient(#000 82%,transparent 100%);
+  opacity:0;animation:fadeup 1.2s .5s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes fadeup{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.hero-text{max-width:24rem}
+.hello{font:300 italic clamp(1.3rem,2.4vw,1.9rem)/1 var(--body);margin-bottom:.3rem}
+.name{font-size:clamp(3.6rem,8vw,7rem);line-height:.9;color:var(--bone)}
+.name i{color:var(--rec);font-style:normal}
+.role{font-weight:600;margin:.8rem 0 .5rem;color:var(--bone)}
+.hero-text p.muted{margin:0 0 1.5rem;max-width:30ch;color:var(--bone)}
+.hero .btns{display:flex;flex-wrap:wrap;gap:.75rem}
+/* hero copy arrives line by line: blur to sharp, small rise, long soft ease */
+.hero-text>*{opacity:0;filter:blur(12px);transform:translateY(24px);animation:arrive 1.3s cubic-bezier(.16,1,.3,1) forwards}
+.hero-text>:nth-child(1){animation-delay:.5s}.hero-text>:nth-child(2){animation-delay:.62s}.hero-text>:nth-child(3){animation-delay:.74s}
+.hero-text>:nth-child(4){animation-delay:.86s}.hero-text>:nth-child(5){animation-delay:.98s}
+@keyframes arrive{to{opacity:1;filter:none;transform:none}}
+/* phones and portrait tablets: photo on top, text underneath */
+@media(max-width:900px){
+  .hero{padding-top:5rem;align-items:end;min-height:120svh}
+  .cutout{left:50%;height:auto;width:min(115vw,56svh);bottom:14rem}
+  .vf{--H:calc(min(115vw,56svh) * 1.4925);left:50%;bottom:calc(14rem + var(--H) * .22);width:min(calc(var(--H) * .6),88vw)}
+  .hero-text{max-width:none}
+}
+
+/* marquee */
+/* two slanted bands crossing like tape: the red one runs right, the dark one runs left */
+.marquee{overflow:hidden;padding:3.2rem 0}
+.band{width:112vw;margin-left:-6vw;overflow:hidden;white-space:nowrap;padding:.85rem 0}
+.band.a{position:relative;z-index:2;background:var(--rec);color:#0a0a0a;transform:rotate(-3deg);box-shadow:0 14px 30px -12px rgba(0,0,0,.8)}
+.band.b{background:#121212;color:var(--bone);border-block:1px solid var(--edge);transform:rotate(2.5deg);margin-top:-.4rem}
+.band div{display:inline-flex;gap:2.2rem;padding-right:2.2rem;font:700 clamp(1.6rem,4.6vw,3.2rem)/1 var(--display);text-transform:uppercase;animation:slide 32s linear infinite}
+.band.a div{animation-direction:reverse}
+.band i{font-style:normal}
+.band.a i{color:#0a0a0a}.band.b i{color:var(--rec)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:0;border-bottom:1px solid var(--edge)}
+.facts div{padding:1.6rem clamp(1rem,3vw,2rem);border-right:1px solid var(--edge)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font:700 2.2rem/1 var(--display);margin-bottom:.35rem}
+
+/* work */
+/* filter: one frosted-glass segmented control; a white pill slides behind the active tab */
+.tabs{position:relative;display:inline-flex;max-width:100%;overflow-x:auto;scrollbar-width:none;gap:2px;padding:5px;margin-bottom:2rem;border-radius:999px;
+  background:rgba(28,28,30,.94);
+  border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 30px -12px rgba(0,0,0,.8)}
+.tabs::-webkit-scrollbar{display:none}
+.tabs .pill{position:absolute;top:5px;bottom:5px;left:0;width:0;border-radius:999px;background:var(--bone);
+  box-shadow:0 4px 14px rgba(0,0,0,.35);transition:transform .5s cubic-bezier(.16,1,.3,1),width .5s cubic-bezier(.16,1,.3,1)}
+.tabs button{position:relative;z-index:1;flex:none;font:500 1rem var(--display);letter-spacing:.03em;color:rgba(238,233,226,.82);
+  background:none;border:0;border-radius:999px;padding:.6rem 1.25rem;cursor:pointer;transition:color .3s}
+.tabs button:hover{color:#fff}
+.tabs button[aria-pressed="true"]{color:var(--black)}
+.reels{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(11rem,40vw),1fr));gap:clamp(.75rem,2vw,1.25rem)}
+.reel[hidden]{display:none}
+/* reveal: each reel rises in from below the frame while its picture wipes open upward, one after another */
+.reel{opacity:0;transform:translateY(90px) scale(.96);transition:opacity .9s,transform 1.2s;transition-timing-function:cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--n,0)*90ms)}
+.reel .frame{clip-path:inset(100% 0 0 0);transition:clip-path 1.1s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--n,0)*90ms + 120ms)}
+.reels.in .reel{opacity:1;transform:none}
+.reels.in .reel .frame{clip-path:inset(0 0 0 0)}
+.reel button{all:unset;display:block;width:100%;cursor:pointer}
+.reel .frame{position:relative;aspect-ratio:9/16;border-radius:.5rem;overflow:hidden;background:var(--panel);border:1px solid var(--edge)}
+.reel img,.reel iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.reel iframe{pointer-events:none;transform:scale(1.02)}
+.reel .frame::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.8));pointer-events:none}
+.reel h3{margin-top:.9rem}
+.reel p{font-size:.92rem;margin:.3rem 0 0}
+.reel button:focus-visible .frame{outline:2px solid var(--rec);outline-offset:3px}
+
+
+/* services + prices */
+.services{display:grid;gap:0;border-top:1px solid var(--edge)}
+.service{display:grid;gap:.5rem 2rem;padding:1.8rem 0;border-bottom:1px solid var(--edge)}
+@media(min-width:800px){.service{grid-template-columns:1fr 1.3fr}}
+.service p{margin:0}
+.price{display:grid;grid-template-columns:1fr auto;gap:.25rem 1.25rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--edge)}
+.price b{font:700 clamp(1.25rem,3vw,1.6rem) var(--display);white-space:nowrap}
+.note{margin-top:1.25rem}
+.moves{color:var(--bone);font-weight:600}
+#prices .btn{margin-top:.75rem}
+
+/* about */
+.about{display:grid;gap:2rem}
+@media(min-width:900px){.about{grid-template-columns:1fr 1.4fr}}
+.about p{font-size:clamp(1.2rem,2.2vw,1.55rem);line-height:1.5}
+
+/* process */
+/* process as an editing timeline: a red playhead (--p, 0 to 1, set from scroll) runs along the steps and lights each one it reaches */
+.steps{position:relative;list-style:none;margin:0;padding:0;display:grid;gap:1.25rem 2rem;counter-reset:s}
+.steps li:not(.ptrack){counter-increment:s;padding-top:1.4rem;position:relative}
+.steps li:not(.ptrack)::before{content:counter(s);font:700 3rem/1 var(--display);color:#6a6a6a;display:block;margin-bottom:.6rem;transition:color .4s}
+/* steps the playhead hasn't reached: only the number and title dim, so the text stays readable */
+.steps h3{transition:color .4s}
+.steps li:not(.ptrack):not(.lit) h3{color:var(--smoke)}
+.steps li.lit::before{color:var(--rec)}
+.term{margin:.9rem 0 0;padding-top:.8rem;border-top:1px dashed var(--edge);font-size:.95rem}
+.term b{display:block;font:600 .95rem var(--display);letter-spacing:.04em;color:var(--rec);margin-bottom:.15rem}
+.ptrack{position:absolute;inset:0 0 auto 0;height:2px;background:var(--edge);pointer-events:none}
+.ptrack .fill{position:absolute;left:0;top:0;height:2px;width:calc(var(--p,0) * 100%);background:var(--rec)}
+.ptrack .head{position:absolute;top:-9px;left:calc(var(--p,0) * 100%);width:2px;height:var(--h,12rem);background:var(--rec);box-shadow:0 0 10px rgba(255,46,46,.6)}
+.ptrack .head::before{content:"";position:absolute;top:0;left:-6px;border:7px solid transparent;border-top:10px solid var(--rec);border-bottom:0}
+@media(min-width:800px){.steps{grid-template-columns:repeat(4,1fr)}}
+/* phones: steps stack, so the track runs down the left side */
+@media(max-width:799px){
+  .steps{padding-left:1.6rem}
+  .ptrack{inset:0 auto 0 0;width:2px;height:auto}
+  .ptrack .fill{width:2px;height:calc(var(--p,0) * 100%)}
+  .ptrack .head{top:calc(var(--p,0) * 100%);left:-6px;width:14px;height:2px}
+  .ptrack .head::before{top:-6px;left:-4px;border:7px solid transparent;border-left:10px solid var(--rec);border-right:0}
+}
+
+/* faq */
+details{border-bottom:1px solid var(--edge)}
+summary{list-style:none;cursor:pointer;padding:1.25rem 2.5rem 1.25rem 0;font-weight:600;font-size:1.15rem;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:.25rem;top:50%;translate:0 -50%;font:700 1.8rem var(--display);color:var(--rec);transition:rotate .25s}
+details[open] summary::after{rotate:45deg}
+details p{padding-bottom:1.25rem;margin:0}
+
+/* contact */
+.contact h2{font-size:clamp(3.5rem,13vw,10rem)}
+.contact .btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+footer{padding:2.5rem 0 5.5rem;border-top:1px solid var(--edge);color:var(--smoke);font-size:.9rem;background:rgba(5,5,5,.94)} /* legal text must stay readable over the 3D rings */
+footer summary{font-size:1rem;color:var(--bone)}
+.legal{padding-bottom:1.25rem;max-width:68ch}
+.legal p{padding-bottom:.6rem}
+.legal b{color:var(--bone)}
+footer .copy{margin:1.5rem 0 0}
+
+/* floating whatsapp */
+.wa{position:fixed;right:1rem;bottom:4.25rem;z-index:25;width:3.5rem;height:3.5rem;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.5);transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:1.7rem;height:1.7rem}
+
+/* scroll timeline (the signature element) */
+.timeline{position:fixed;left:0;right:0;bottom:0;z-index:30;height:3.25rem;background:rgba(10,10,10,.96);border-top:1px solid var(--edge);display:flex;align-items:center;gap:1rem;padding:0 clamp(1rem,3vw,2rem)}
+.track{position:relative;flex:1;height:1.6rem;display:flex;gap:3px}
+.track a{flex:var(--w);border-radius:3px;background:#2a2a2a;text-decoration:none;font:500 .7rem/1.6rem var(--display);letter-spacing:.04em;color:#c4bfb7;padding:0 .45rem;overflow:hidden;white-space:nowrap;transition:background .2s,color .2s}
+@media(max-width:600px){.track a{font-size:0;padding:0}} /* too narrow for labels on phones: show just the clips */
+.track a.on{background:#3a1414;color:var(--bone)}
+.playhead{position:absolute;top:-.55rem;bottom:-.3rem;left:0;width:2px;background:var(--rec);pointer-events:none}
+.playhead::before{content:"";position:absolute;top:0;left:-6px;border:7px solid transparent;border-top:9px solid var(--rec);border-bottom:0}
+
+/* cursor over reels: frosted-glass film-leader ring with a "Play" label */
+.cursor{position:fixed;left:0;top:0;z-index:60;width:5.6rem;height:5.6rem;margin:-2.8rem 0 0 -2.8rem;border-radius:50%;
+  background:rgba(12,12,12,.45);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--bone);
+  display:grid;place-items:center;pointer-events:none;transform:scale(0);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.cursor.show{transform:scale(1)}
+.cursor svg{position:absolute;inset:0;width:100%;height:100%}
+.cursor .ring{fill:none;stroke:rgba(255,255,255,.3);stroke-width:1}
+.cursor .cross{stroke:rgba(255,255,255,.14);stroke-width:1}
+.cursor .cnum{position:relative;font:500 .8rem/1 var(--display);letter-spacing:.12em;text-transform:uppercase}
+.cursor .cnum::before{content:"";display:inline-block;width:.45rem;height:.45rem;border-radius:50%;background:var(--rec);margin-right:.4rem;vertical-align:.1em}
+
+/* full-screen film-leader countdown before a reel plays */
+.leader{position:fixed;inset:0;z-index:80;display:grid;place-items:center;cursor:pointer;
+  background:radial-gradient(60% 60% at 50% 50%,#161616,#030303 75%);animation:fadein .25s ease-out}
+.leader[hidden]{display:none}
+.leader svg{position:absolute;width:min(78vmin,38rem);height:min(78vmin,38rem)}
+.leader .ring{fill:none;stroke:rgba(255,255,255,.28);stroke-width:.6}
+.leader .cross{stroke:rgba(255,255,255,.14);stroke-width:.6}
+.leader .sweep{fill:none;stroke:var(--rec);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;transform:rotate(-90deg);transform-origin:50px 50px}
+.leader.tick .sweep{animation:sweep .8s linear forwards}
+.leader .lnum{position:relative;font:700 clamp(7rem,34vmin,20rem)/1 var(--display);color:var(--bone)}
+.leader.tick .lnum{animation:pop .8s cubic-bezier(.16,1,.3,1)}
+.leader small{position:absolute;bottom:2rem;font:500 .8rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+@keyframes sweep{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(1.18);filter:blur(8px)}35%{opacity:1;filter:none}to{transform:scale(1)}}
+@keyframes fadein{from{opacity:0}}
+
+/* lightbox */
+dialog{padding:0;border:0;background:transparent;max-width:none;max-height:none}
+dialog::backdrop{background:rgba(0,0,0,.88);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog .player{width:min(90vw,calc(86vh*9/16));aspect-ratio:9/16;border-radius:.6rem;overflow:hidden;background:#000}
+dialog iframe{width:100%;height:100%;border:0}
+dialog .close{position:fixed;top:1rem;right:1rem}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none;filter:none}
+/* headings reveal word by word */
+.words.rv{opacity:1;transform:none;filter:none}
+.words .w{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(.45em);transition:opacity 1s,transform 1s,filter 1s;transition-timing-function:cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i)*70ms)}
+.words.in .w{opacity:1;filter:none;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .bigword span{transform:none}.cutout,.vf{opacity:1}.rv,.words .w,.hero-text>*{opacity:1;transform:none;filter:none}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<canvas class="rings" id="rings" aria-hidden="true"></canvas>
+
+<nav id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>Aashish</a>
+    <div class="links"><a href="#work">Work</a><a href="#services">Services</a><a href="#prices">Prices</a><a href="#contact">Contact</a></div>
+    <a class="reelbadge" href="#top" aria-label="Back to top" title="Drag around to scroll, click to go to the top">
+      <canvas id="reel3d" aria-hidden="true"></canvas>
+    </a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bigword" id="bigword" aria-hidden="true"><span style="--i:0">P</span><span style="--i:1">O</span><span style="--i:2">R</span><span style="--i:3">T</span><span style="--i:4">F</span><span style="--i:5">O</span><span style="--i:6">L</span><span style="--i:7">I</span><span style="--i:8">O</span></div>
+  <canvas class="cutout" id="turn" width="603" height="900" role="img" aria-label="Aashish, video editor"></canvas>
+  <div class="vf" aria-hidden="true"><span>REC</span></div>  <div class="wrap">
+    <div class="hero-text">
+      <p class="hello">Hello, I'm</p>
+      <h1 class="name">Aashish<i>.</i></h1>
+      <p class="role">Video editor based in Chennai</p>
+      <p class="muted">For brands, businesses and creators. I cut reels, product films and podcasts built to bring in calls.</p>
+      <div class="btns">
+        <a class="btn rec" href="#work">See my work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+        <a class="btn" href="https://wa.me/918220618014?text=Hi%20Aashish%2C%20I%27d%20like%20a%20quote%20for%20a%20video." target="_blank" rel="noopener">Get a quote on WhatsApp <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="band a"><div><span>Reels</span><i>●</i><span>Product films</span><i>●</i><span>Podcasts</span><i>●</i><span>Behind the scenes</span><i>●</i><span>Captions</span><i>●</i><span>Reels</span><i>●</i><span>Product films</span><i>●</i><span>Podcasts</span><i>●</i><span>Behind the scenes</span><i>●</i><span>Captions</span><i>●</i></div></div>
+  <div class="band b"><div><span>Ads that get calls</span><i>●</i><span>Cinematic edits</span><i>●</i><span>24–48 hr turnaround</span><i>●</i><span>Short and long form</span><i>●</i><span>Ads that get calls</span><i>●</i><span>Cinematic edits</span><i>●</i><span>24–48 hr turnaround</span><i>●</i><span>Short and long form</span><i>●</i></div></div>
+</div>
+
+<div class="facts">
+  <div><b>24–48 hrs</b><span class="muted">Reel delivery</span></div>
+  <div><b>3 days</b><span class="muted">Full podcast episode</span></div>
+  <div><b>2 free</b><span class="muted">Revision rounds</span></div>
+  <div><b>9:16 &amp; 16:9</b><span class="muted">Sized for Reels, Shorts and YouTube</span></div>
+</div>
+
+<main>
+<section id="work">
+  <div class="wrap">
+    <h2 class="rv">Recent work</h2>
+    <div class="tabs" role="group" aria-label="Filter reels">
+      <span class="pill" aria-hidden="true"></span>
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="ads">Ads</button>
+      <button aria-pressed="false" data-f="bts">Behind the scenes</button>
+      <button aria-pressed="false" data-f="podcast">Podcast</button>
+      <button aria-pressed="false" data-f="before">Before &amp; after</button>
+    </div>
+    <div class="reels" id="reels">
+      <article class="reel" data-cat="ads"><button data-id="62qKZUem5rA" aria-label="Play Built to Sell"><div class="frame"><img src="images/earphones-launch.jpg" alt=""></div><h3>Built to Sell</h3><p class="muted">Product + CTA reel</p></button></article>
+      <article class="reel" data-cat="bts"><button data-id="mI-cGB3Ce4Q" aria-label="Play Behind the Scenes: Studio Shoot"><div class="frame"><img src="images/studio-bts.jpg" alt=""></div><h3>Studio Shoot</h3><p class="muted">Behind the scenes</p></button></article>
+      <article class="reel" data-cat="bts"><button data-id="KiXRGCbLrg0" aria-label="Play On Set: cinematic BTS"><div class="frame"><img src="images/on-set-bts.jpg" alt=""></div><h3>On Set</h3><p class="muted">Cinematic BTS</p></button></article>
+      <article class="reel" data-cat="podcast"><button data-id="qeV6zHW4U80" aria-label="Play Podcast Clip: Interview with Captions"><div class="frame"><img src="images/interview-clip.jpg" alt=""></div><h3>Podcast Clip</h3><p class="muted">Interview with captions</p></button></article>
+      <article class="reel" data-cat="before"><button data-id="VaBtIui9YVw" aria-label="Play Raw to Final: Before and After"><div class="frame"><img src="images/raw-to-final.jpg" alt=""></div><h3>Raw to Final</h3><p class="muted">Before and after</p></button></article>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2 class="rv">What I edit</h2>
+    <div class="services">
+      <div class="service rv"><h3>Ads that get calls</h3><p class="muted">Promo reels with captions and call-driven CTA reels, built to make people pick up the phone or send a message.</p></div>
+      <div class="service rv"><h3>Product and brand films</h3><p class="muted">Product shoot edits and cinematic, trending cuts that make what you sell look premium.</p></div>
+      <div class="service rv"><h3>Content that keeps people watching</h3><p class="muted">Full podcast episodes, short clips and behind-the-scenes edits for brands and creators.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="wrap">
+    <h2 class="rv">Prices</h2>
+    <div class="rv">
+      <div class="price"><span>Promo reel with captions (15–60 sec)</span><b>₹899–₹1,499</b></div>
+      <div class="price"><span>CTA / call-driven reel</span><b>₹1,499–₹2,499</b></div>
+      <div class="price"><span>Product or cinematic edit (30–90 sec)</span><b>₹1,399–₹2,499</b></div>
+      <div class="price"><span>Podcast full episode</span><b>₹2,399–₹4,999</b></div>
+      <div class="price"><span>Podcast short clip (each)</span><b>₹799–₹1,299</b></div>
+      <div class="price"><span>BTS edit</span><b>₹799–₹1,499</b></div>
+      <p class="note muted">Introductory rates for a limited number of new projects. Your final price comes after a quick chat about your video.</p>
+      <p class="muted"><b class="moves">Posting every week?</b> Monthly plans are available for brands that need regular content. Ask me on WhatsApp.</p>
+      <p class="muted"><b class="moves">What moves the price:</b> video length, how much footage there is, motion graphics and animated text, colour grading and sound design, and rush delivery.</p>
+      <a class="btn rec" href="https://wa.me/918220618014?text=Hi%20Aashish%2C%20I%27d%20like%20a%20quote%20for%20a%20video." target="_blank" rel="noopener">Get your quote on WhatsApp <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <h2 class="rv">About</h2>
+    <p class="rv">I'm Aashish, a video editor helping small businesses get more clients through short-form and long-form video. Before I edit, I ask about your audience, your platform and your goal, so every cut has a purpose and the first version is already close to what you need.</p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <h2 class="rv">How I work</h2>
+    <ol class="steps rv" id="steps">
+      <li><h3>Brief</h3><p class="muted">You tell me what the video is for, who will watch it and where it will be posted.</p><p class="term"><b>Payment</b>20% before I start editing, by UPI or bank transfer.</p></li>
+      <li><h3>Edit</h3><p class="muted">I pick the style, pacing and captions that fit, and cut the first version.</p><p class="term"><b>Delivery</b>Reels in 24–48 hours. Full podcast episodes in 3 days. Rush delivery costs extra.</p></li>
+      <li><h3>Review</h3><p class="muted">You send notes and I make the changes.</p><p class="term"><b>Revisions</b>2 free rounds per video, where one round is one list of changes sent together. Extra rounds available.</p></li>
+      <li><h3>Deliver</h3><p class="muted">You get the final file, ready to post, in the right size for each platform.</p><p class="term"><b>Payment</b>The other 80% after delivery.</p></li>
+      <li class="ptrack" aria-hidden="true"><span class="fill"></span><span class="head"></span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="rv">Questions</h2>
+    <div class="rv">
+      <details><summary>What do I need to send you?</summary><p class="muted">Your raw footage, logo, brand colours, and any reference videos you like.</p></details>
+      <details><summary>Do you add music?</summary><p class="muted">Yes. I use royalty-free music, or you can send tracks you have the rights to.</p></details>
+      <details><summary>Can you add captions?</summary><p class="muted">Yes. Promo reels and podcast clips come with captions styled for your brand.</p></details>
+      <details><summary>What if I need it faster?</summary><p class="muted">Message me with your deadline. Rush delivery is possible for an extra fee.</p></details>
+      <details><summary>How do I pay?</summary><p class="muted">20% by UPI or bank transfer before I start, and the rest after delivery.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2 class="rv">Let's talk about your video</h2>
+    <p class="muted rv">Tell me what you're making and where it will be posted. I'll reply with the edit I'd recommend and a delivery time.</p>
+    <div class="btns rv">
+      <a class="btn rec" href="https://wa.me/918220618014?text=Hi%20Aashish%2C%20I%20need%20a%20video%20edited." target="_blank" rel="noopener">Message on WhatsApp <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+      <a class="btn" href="mailto:aashisheditsss@gmail.com">aashisheditsss@gmail.com <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+      <a class="btn" href="tel:+918220618014">+91 82206 18014 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="legal"><div class="wrap">
+  <details>
+    <summary>Terms</summary>
+    <div class="legal">
+      <p><b>Delivery.</b> Reels in 24–48 hours, full podcast episodes in 3 days, counted from when I have all your footage. Rush delivery costs extra.</p>
+      <p><b>Revisions.</b> 2 free rounds of changes per video. One round is one list of changes sent together. Extra rounds are available for an added fee.</p>
+      <p><b>Payment.</b> 20% before I start editing, 80% after delivery, by UPI or bank transfer. The final file without a watermark is sent once paid in full.</p>
+      <p><b>Refunds.</b> The 20% advance is fully refunded if you cancel before editing starts. Once editing has started, it is not refundable.</p>
+      <p><b>Ownership.</b> Once paid in full, the final video is yours to use. I only show your video in my portfolio with your permission.</p>
+      <p><b>Music and footage.</b> I use royalty-free music, or tracks you have the rights to. You confirm you have the rights to the footage, logos and music you send me.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Privacy</summary>
+    <div class="legal">
+      <p>This site has no forms, sign-ups, analytics or tracking cookies, and I don't collect personal data through it.</p>
+      <p>When you contact me on WhatsApp, by email or by phone, I only use your details to reply about your project.</p>
+      <p>Some parts load from other services: YouTube (the reel videos, in privacy mode; YouTube may set cookies when a video plays), Google Fonts and jsDelivr (fonts and 3D graphics; like any website, they see your IP address), and WhatsApp if you message me.</p>
+      <p>Want our chats or files deleted? Email <a href="mailto:aashisheditsss@gmail.com">aashisheditsss@gmail.com</a> and I'll delete them.</p>
+    </div>
+  </details>
+  <p class="copy">© 2026 Aashish. Video editor in Chennai, India.</p>
+</div></footer>
+
+<a class="wa" href="https://wa.me/918220618014?text=Hi%20Aashish%2C%20I%20need%20a%20video%20edited." target="_blank" rel="noopener" aria-label="Message Aashish on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<div class="timeline" aria-hidden="true">
+  <span class="tc" id="tc2">00:00:00:00</span>
+  <div class="track" id="track">
+    <a href="#top" tabindex="-1" style="--w:2">Intro</a><a href="#work" tabindex="-1" style="--w:3">Work</a><a href="#services" tabindex="-1" style="--w:1.5">Services</a><a href="#prices" tabindex="-1" style="--w:1.5">Prices</a><a href="#about" tabindex="-1" style="--w:1">About</a><a href="#process" tabindex="-1" style="--w:2">Process</a><a href="#faq" tabindex="-1" style="--w:1.5">FAQ</a><a href="#contact" tabindex="-1" style="--w:1.5">Contact</a>
+    <div class="playhead" id="ph"></div>
+  </div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <svg viewBox="0 0 80 80"><circle class="ring" cx="40" cy="40" r="37"/><path class="cross" d="M40 6V74M6 40H74"/><circle class="ring" cx="40" cy="40" r="27"/></svg>
+  <span class="cnum">Play</span>
+</div>
+
+<div class="leader" id="leader" hidden aria-hidden="true">
+  <svg viewBox="0 0 100 100"><circle class="ring" cx="50" cy="50" r="48"/><circle class="ring" cx="50" cy="50" r="36"/><path class="cross" d="M50 0V100M0 50H100"/><circle class="sweep" cx="50" cy="50" r="48" pathLength="100"/></svg>
+  <span class="lnum" id="lnum">3</span>
+  <small>Click to skip</small>
+</div>
+
+<dialog id="player" aria-label="Video player">
+  <button class="btn close" id="close">Close</button>
+  <div class="player" id="slot"></div>
+</dialog>
+
+<script>
+const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const yt = (id, extra) => `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&rel=0&modestbranding=1&${extra}`;
+
+// split section headings into words so they can reveal one after another
+$$('h2.rv').forEach(h => {
+  h.classList.add('words');
+  h.innerHTML = h.textContent.trim().split(/\s+/).map((w, i) => `<span class="w" style="--i:${i}">${w}</span>`).join(' ');
+});
+
+// scroll reveal, both ways: things that enter together arrive one after another; leaving the screen plays it backwards
+const io = new IntersectionObserver(es => {
+  let n = 0;
+  es.forEach(e => {
+    const el = e.target;
+    if (e.isIntersecting) { el.style.transitionDelay = `${n++ * 90}ms`; el.classList.add('in'); }
+    else { el.style.transitionDelay = '0ms'; el.classList.remove('in'); }
+  });
+}, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+$$('.rv, #steps, #reels').forEach(el => io.observe(el));
+
+// timeline playhead, timecode, nav background, active section
+// hero head turn: scrolling down scrubs 56 cut-out video frames from facing the camera to side profile
+{
+  const cv = $('#turn'), ctx = cv.getContext('2d'), N = 56, imgs = [];
+  let shown = -1, sp = 0;
+  const draw = i => {
+    const im = imgs[i];
+    if (i === shown || !im.complete || !im.naturalWidth) return;
+    ctx.clearRect(0, 0, cv.width, cv.height); ctx.drawImage(im, 0, 0, cv.width, cv.height); shown = i;
+  };
+  const load = i => { const im = imgs[i]; im.src = `images/turn/${String(i).padStart(2, '0')}.webp`; };
+  for (let i = 0; i < N; i++) imgs.push(new Image());
+  imgs[0].onload = () => draw(0);
+  load(0); // first frame now; the other 55 wait until the rest of the page has loaded
+  const loadRest = () => { for (let i = 1; i < N; i++) load(i); };
+  document.readyState === 'complete' ? loadRest() : addEventListener('load', loadRest);
+  (function turn() {
+    requestAnimationFrame(turn);
+    if (scrollY > innerHeight * 1.5) return; // hero is off screen
+    sp += (Math.min(1, scrollY / (innerHeight * .35)) - sp) * .25; // full profile after a third of a screen, before the photo leaves
+    let i = Math.round(sp * (N - 1));
+    while (i > 0 && !imgs[i].naturalWidth) i--; // frames still loading: show the nearest earlier one
+    draw(i);
+  })();
+}
+
+const nav = $('#nav'), bigword = $('#bigword'), ph = $('#ph'), track = $('#track'), tc = $('#tc2');
+const clips = $$('#track a'), secs = clips.map(a => $(a.getAttribute('href')));
+const pad = n => String(n).padStart(2, '0');
+function onScroll() {
+  const max = Math.max(1, document.documentElement.scrollHeight - innerHeight), p = scrollY / max;
+  ph.style.left = (p * track.clientWidth) + 'px';
+  const f = Math.round(p * 82 * 25); // maps the page onto an 82-second, 25 fps timeline
+  tc.textContent = `00:${pad(Math.floor(f / 1500))}:${pad(Math.floor(f / 25) % 60)}:${pad(f % 25)}`;
+  nav.classList.toggle('solid', scrollY > 40);  if (!rm && scrollY < innerHeight) bigword.style.transform = `translateY(${scrollY * .35}px)`; // word drifts slower than the photo
+  let cur = 0; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < innerHeight * .5) cur = i; });
+  clips.forEach((c, i) => c.classList.toggle('on', i === cur));
+}
+let queued = false;
+const requestScroll = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; onScroll(); }); } };
+addEventListener('scroll', requestScroll, { passive: true }); addEventListener('resize', requestScroll); onScroll();
+
+// filter tabs; the pill slides to whichever tab is active
+const pill = $('.tabs .pill');
+const placePill = () => { const a = $('.tabs [aria-pressed="true"]'); pill.style.width = a.offsetWidth + 'px'; pill.style.transform = `translateX(${a.offsetLeft}px)`; };
+$$('.tabs button').forEach(b => b.addEventListener('click', () => {
+  $$('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  $$('.reel').forEach(r => r.hidden = b.dataset.f !== 'all' && r.dataset.cat !== b.dataset.f);
+  placePill();
+}));
+addEventListener('resize', placePill);
+document.fonts.ready.then(placePill); // tab widths change once Oswald loads
+placePill();
+
+// Recent work: each reel gets its place in the stagger; the scroll reveal above toggles the grid in and out
+[...$('#reels').children].forEach((c, i) => c.style.setProperty('--n', i));
+
+// How I work: scroll moves the playhead along the steps (and back), lighting each step it has reached
+{
+  const ol = $('#steps'), steps = $$('#steps li:not(.ptrack)'), wide = matchMedia('(min-width:800px)');
+  let on = false, sp = 0;
+  new IntersectionObserver(([e]) => on = e.isIntersecting, { rootMargin: '20% 0px' }).observe(ol);
+  (function play() {
+    requestAnimationFrame(play);
+    if (!on) return;
+    const r = ol.getBoundingClientRect();
+    // 0 when the steps' top reaches 80% down the screen, 1 when their bottom passes 45%
+    const p = Math.min(1, Math.max(0, (innerHeight * .8 - r.top) / (r.height + innerHeight * .35)));
+    sp += (p - sp) * .15;
+    ol.style.setProperty('--p', sp.toFixed(4));
+    ol.style.setProperty('--h', `${r.height + 9}px`);
+    steps.forEach(li => {
+      const start = wide.matches ? li.offsetLeft / ol.offsetWidth : li.offsetTop / ol.offsetHeight;
+      li.classList.toggle('lit', sp >= start + .01);
+    });
+  })();
+}
+
+// hover a reel: glass "Play" cursor and a muted preview that keeps looping
+const cur = $('#cursor');
+if (fine) addEventListener('pointermove', e => { cur.style.translate = `${e.clientX}px ${e.clientY}px`; }, { passive: true });
+
+// click a reel: full-screen film-leader countdown 3, 2, 1, then the video with sound
+const leader = $('#leader'), lnum = $('#lnum');
+let count, onDone;
+function finishLeader() { clearTimeout(count); leader.hidden = true; if (onDone) { const f = onDone; onDone = null; f(); } }
+function runLeader(n) {
+  leader.classList.remove('tick'); void leader.offsetWidth; leader.classList.add('tick'); // restart sweep + pop
+  lnum.textContent = n;
+  count = setTimeout(() => n > 1 ? runLeader(n - 1) : finishLeader(), 800);
+}
+leader.addEventListener('click', finishLeader);
+addEventListener('keydown', e => { if (e.key === 'Escape' && !leader.hidden) finishLeader(); });
+
+// a looping preview keeps playing while its reel is on screen; once scrolled away or filtered out, its player is removed
+const offscreen = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) e.target.querySelector('iframe')?.remove(); }));
+
+$$('.reel button').forEach(btn => {
+  const frame = btn.querySelector('.frame'), id = btn.dataset.id;
+  if (fine) {
+    frame.style.cursor = 'none';
+    let t;
+    frame.addEventListener('mouseenter', () => {
+      cur.classList.add('show');
+      if (rm || frame.querySelector('iframe')) return;
+      t = setTimeout(() => frame.insertAdjacentHTML('beforeend', `<iframe src="${yt(id, `autoplay=1&mute=1&controls=0&loop=1&playlist=${id}`)}" allow="autoplay" tabindex="-1" title=""></iframe>`), 300);
+    });
+    frame.addEventListener('mouseleave', () => { clearTimeout(t); cur.classList.remove('show'); });
+    offscreen.observe(frame);
+  }
+  btn.addEventListener('click', () => {
+    const open = () => {
+      $('#slot').innerHTML = `<iframe src="${yt(id, 'autoplay=1')}" allow="autoplay; fullscreen; encrypted-media" allowfullscreen title="${btn.getAttribute('aria-label').replace('Play ', '')}"></iframe>`;
+      $('#player').showModal();
+    };
+    if (rm) return open();
+    cur.classList.remove('show');
+    onDone = open; leader.hidden = false; runLeader(3);
+  });
+});
+const dlg = $('#player');
+dlg.addEventListener('close', () => $('#slot').innerHTML = '');
+$('#close').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const canvas = document.getElementById('rings');
+const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setPixelRatio(1); // dimmed background: 1x is visually identical and far cheaper
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), .04).texture;
+const camera = new THREE.PerspectiveCamera(32, 1, .1, 50);
+camera.position.set(0, 0, 7.2);
+const key = new THREE.DirectionalLight(0xff3b3b, 2.2); key.position.set(-3, 2, 3); scene.add(key);
+
+const red = new THREE.MeshPhysicalMaterial({ color: 0xd61f1f, metalness: .35, roughness: .22, clearcoat: 1, side: THREE.DoubleSide });
+const steel = new THREE.MeshStandardMaterial({ color: 0xd8d8dc, metalness: 1, roughness: .18, side: THREE.DoubleSide });
+const graphite = new THREE.MeshStandardMaterial({ color: 0x2a2a2e, metalness: .9, roughness: .3, side: THREE.DoubleSide });
+
+const rig = new THREE.Group(); scene.add(rig);
+const core = new THREE.Mesh(new THREE.SphereGeometry(.62, 64, 64), new THREE.MeshStandardMaterial({ color: 0xbdbdc2, metalness: .7, roughness: .45, transparent: true }));
+rig.add(core);
+// flat ribbon rings (open cylinders), each tilted on its own axis; [radius, width, material, tilt, particle colour]
+const specs = [
+  [1.35, .30, red, [1.2, .2, 0], 0xff3030], [1.55, .22, steel, [.3, 1.1, .4], 0xe8e8ee], [1.2, .26, graphite, [-.6, .5, 1.2], 0x8a8a92],
+  [1.7, .18, red, [.9, -.8, -.3], 0xff3030], [1.45, .24, steel, [-1.1, -.2, .7], 0xe8e8ee], [1.05, .2, red, [.2, .9, -1], 0xff3030],
+];
+const N = 320; // particles per ring, kept sparse so they read as dust, not noise
+const ease = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+const rings = specs.map(([r, w, mat, rot, pc], i) => {
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, w, 160, 1, true), mat.clone());
+  m.material.transparent = true;
+  m.rotation.set(...rot);
+  // particles live on the ring's own surface, so they follow it while it moves, then fly off it
+  const rest = new Float32Array(N * 3), drift = new Float32Array(N * 3);
+  for (let k = 0; k < N; k++) {
+    const a = Math.random() * Math.PI * 2, y = (Math.random() - .5) * w;
+    rest.set([Math.cos(a) * r, y, Math.sin(a) * r], k * 3);
+    const out = .6 + Math.random() * 1.8; // mostly outward from the ring, with some scatter
+    drift.set([Math.cos(a) * out + (Math.random() - .5) * .8, (Math.random() - .5) * 2.2, Math.sin(a) * out + (Math.random() - .5) * .8], k * 3);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(rest.slice(), 3));
+  const dots = new THREE.Points(geo, new THREE.PointsMaterial({ color: pc, size: .022, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending }));
+  m.add(dots);
+  m.userData = { base: m.rotation.clone(), dir: new THREE.Vector3(Math.cos(i * 1.7), Math.sin(i * 2.3), Math.cos(i * .9) * .6).normalize(), spin: (i % 2 ? 1 : -1), rest, drift, dots };
+  rig.add(m);
+  return m;
+});
+
+function size() {
+  renderer.setSize(innerWidth, innerHeight, false);
+  camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+  // wide screens: sit right of centre; phones: centred
+  rig.position.x = camera.aspect > 1 ? 1.3 : 0;
+}
+addEventListener('resize', size); size();
+
+// mouse tilts it gently (content sits above, so no drag)
+let mx = 0, my = 0, rx = 0, ry = 0;
+addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+
+let split = 0, lastD = -1;
+const clock = new THREE.Clock();
+(function frame() {
+  requestAnimationFrame(frame);
+  const t = clock.getElapsedTime();
+  const p = Math.min(1, scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight));
+  // together at the top of the site, dismantled mid-page, locked back together at the bottom
+  split += (Math.sin(p * Math.PI) - split) * .06;
+
+  rx += (my * .5 - rx) * .04; ry += (mx * .7 - ry) * .04;
+  const idle = rm ? 0 : t * .3;
+  rig.rotation.set(rx + (rm ? 0 : Math.sin(t * .6) * .18), ry + idle + p * Math.PI * 3, rm ? 0 : Math.sin(t * .4) * .08);
+  rig.position.y = rm ? 0 : Math.sin(t * .9) * .08;
+
+  const apart = ease(0, .55, split), dust = ease(.35, 1, split), d = dust * dust, moveDots = Math.abs(d - lastD) > 1e-4;
+  lastD = d;
+  rings.forEach(m => {
+    const { base, dir, spin, rest, drift, dots } = m.userData;
+    m.position.copy(dir).multiplyScalar(apart * 1.1);
+    m.rotation.set(base.x + spin * apart * 1.5, base.y + apart * 1.0 + (rm ? 0 : t * .2 * spin), base.z + spin * apart * .7);
+    m.material.opacity = 1 - dust * .92;
+    if (moveDots) {
+      const pos = dots.geometry.attributes.position.array;
+      for (let k = 0; k < pos.length; k++) pos[k] = rest[k] + drift[k] * d;
+      dots.geometry.attributes.position.needsUpdate = true;
+    }
+    dots.material.opacity = ease(.3, .7, split) * .4;
+  });
+  core.scale.setScalar(1 - apart * .3);
+  core.material.opacity = 1 - dust * .8;
+  renderer.render(scene, camera);
+})();
+
+// ---- 3D reel badge in the nav ----
+{
+  const c = document.getElementById('reel3d');
+  const r3 = new THREE.WebGLRenderer({ canvas: c, alpha: true, antialias: true });
+  r3.setPixelRatio(Math.min(devicePixelRatio, 2));
+  r3.setSize(c.clientWidth, c.clientHeight, false);
+  r3.toneMapping = THREE.ACESFilmicToneMapping;
+  const s3 = new THREE.Scene();
+  s3.environment = new THREE.PMREMGenerator(r3).fromScene(new RoomEnvironment(), .04).texture;
+  const cam = new THREE.PerspectiveCamera(30, 1, .1, 20); cam.position.set(0, 0, 6.4);
+  const rim = new THREE.DirectionalLight(0xff3b3b, 3); rim.position.set(2, 2, -1); s3.add(rim);
+
+  const badge = new THREE.Group(); badge.rotation.set(-.45, .35, 0); s3.add(badge);
+
+  // film reel: a disc with five windows and a hub, extruded so it has real thickness
+  const disc = new THREE.Shape(); disc.absarc(0, 0, 1, 0, Math.PI * 2);
+  for (let i = 0; i < 5; i++) {
+    const a = i / 5 * Math.PI * 2 + Math.PI / 2, h = new THREE.Path();
+    h.absarc(Math.cos(a) * .55, Math.sin(a) * .55, .27, 0, Math.PI * 2, true); disc.holes.push(h);
+  }
+  const hole = new THREE.Path(); hole.absarc(0, 0, .1, 0, Math.PI * 2, true); disc.holes.push(hole);
+  const reelGeo = new THREE.ExtrudeGeometry(disc, { depth: .16, bevelEnabled: true, bevelThickness: .04, bevelSize: .035, bevelSegments: 3, curveSegments: 48 });
+  reelGeo.center();
+  const reel = new THREE.Mesh(reelGeo, new THREE.MeshStandardMaterial({ color: 0xe9e6e1, metalness: .85, roughness: .22 }));
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(.17, .17, .34, 32), new THREE.MeshPhysicalMaterial({ color: 0xff2e2e, metalness: .4, roughness: .25, clearcoat: 1 }));
+  hub.rotation.x = Math.PI / 2;
+  const spinner = new THREE.Group(); spinner.add(reel, hub); badge.add(spinner);
+
+  // progress ring: faint track plus a glowing red arc that grows with the page
+  const ringMat = new THREE.MeshStandardMaterial({ color: 0xff2e2e, emissive: 0xff2e2e, emissiveIntensity: .9, metalness: .3, roughness: .3, side: THREE.DoubleSide });
+  badge.add(new THREE.Mesh(new THREE.TorusGeometry(1.42, .045, 12, 120), new THREE.MeshStandardMaterial({ color: 0x3a3a40, metalness: .8, roughness: .4 })));
+  const arc = new THREE.Mesh(new THREE.TorusGeometry(1.42, .075, 12, 120, .001), ringMat);
+  arc.rotation.z = Math.PI / 2; badge.add(arc);
+  let shownArc = -1;
+
+  // orbit: a tilted thin path with a red bead and a white playhead travelling round it
+  const orbit = new THREE.Group(); orbit.rotation.set(1.15, .25, 0); badge.add(orbit);
+  orbit.add(new THREE.Mesh(new THREE.TorusGeometry(1.25, .012, 8, 120), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: .35 })));
+  const bead = new THREE.Mesh(new THREE.SphereGeometry(.11, 20, 20), ringMat); orbit.add(bead);
+  const head = new THREE.Mesh(new THREE.ConeGeometry(.1, .22, 3), new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: .5, roughness: .3 })); orbit.add(head);
+
+  let hov = 0, ang = 0, lastY = scrollY;
+  const a = c.closest('a');
+  a.addEventListener('pointerenter', () => hov = 1); a.addEventListener('pointerleave', () => hov = 0);
+
+  // scroll wheel: drag round the badge like an iPod wheel; clockwise scrolls down, 3 turns cover the page. A plain click still goes to top.
+  let wheel = false, lastA = null, turned = 0;
+  // angle of the pointer around the badge centre; null near the centre, where a 1px wobble would swing the angle wildly
+  const angleOf = e => {
+    const r = a.getBoundingClientRect(), x = e.clientX - (r.left + r.width / 2), y = e.clientY - (r.top + r.height / 2);
+    return Math.hypot(x, y) < 14 ? null : Math.atan2(y, x);
+  };
+  a.addEventListener('pointerdown', e => { wheel = true; turned = 0; lastA = angleOf(e); a.setPointerCapture(e.pointerId); e.preventDefault(); });
+  a.addEventListener('pointermove', e => {
+    if (!wheel) return;
+    const A = angleOf(e);
+    if (A === null || lastA === null) { lastA = A; return; }
+    let d = A - lastA; lastA = A;
+    if (d > Math.PI) d -= Math.PI * 2; else if (d < -Math.PI) d += Math.PI * 2; // crossing the ±180° seam
+    turned += Math.abs(d);
+    scrollBy({ top: d * (document.documentElement.scrollHeight - innerHeight) / (Math.PI * 6), behavior: 'instant' });
+  });
+  ['pointerup', 'pointercancel'].forEach(t => a.addEventListener(t, () => wheel = false));
+  a.addEventListener('click', e => { if (turned > .2) e.preventDefault(); }); // a turn is not a click
+  const clk = new THREE.Clock();
+  (function tick() {
+    requestAnimationFrame(tick);
+    const t = clk.getElapsedTime(), v = scrollY - lastY; lastY = scrollY;
+    const p = Math.min(1, scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight));
+    ang += (rm ? 0 : .02) + v * .006; // idles slowly, whips round with scroll speed
+    spinner.rotation.z = -ang;
+    if (Math.abs(p - shownArc) > .01) { // rebuild the arc only when progress visibly changes
+      arc.geometry.dispose(); arc.geometry = new THREE.TorusGeometry(1.42, .075, 12, 120, Math.max(.001, p * Math.PI * 2));
+      arc.scale.y = -1; shownArc = p; // mirrored so it grows clockwise from the top
+    }
+    const o = rm ? 0 : t * 1.6;
+    bead.position.set(Math.cos(o) * 1.25, Math.sin(o) * 1.25, 0);
+    head.position.set(Math.cos(-o * .7 + 2) * 1.25, Math.sin(-o * .7 + 2) * 1.25, 0);
+    head.rotation.z = -o * .7 + 2;
+    badge.rotation.x += ((-.45 + hov * .25 + (rm ? 0 : Math.sin(t * .8) * .06)) - badge.rotation.x) * .08;
+    badge.rotation.y += ((.35 - hov * .5) - badge.rotation.y) * .08;
+    r3.render(s3, cam);
+  })();
+}
+</script>
+</body>
+</html>

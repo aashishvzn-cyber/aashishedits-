@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scene not found | Aashish</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#050505">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050505;--bone:#EEE9E2;--smoke:#8C877F;--rec:#FF2E2E;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;display:grid;place-items:center;text-align:center;padding:2rem 1rem;color:var(--bone);
+  background:radial-gradient(60% 60% at 50% 45%,#161616,#030303 75%);font:400 1.0625rem/1.7 "Source Serif 4",Georgia,serif}
+.leader{position:relative;width:min(70vmin,26rem);aspect-ratio:1;display:grid;place-items:center;margin:0 auto 1.5rem}
+.leader svg{position:absolute;inset:0;width:100%;height:100%}
+.ring{fill:none;stroke:rgba(255,255,255,.28);stroke-width:.6}
+.cross{stroke:rgba(255,255,255,.14);stroke-width:.6}
+.sweep{fill:none;stroke:var(--rec);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:100;transform:rotate(-90deg);transform-origin:50px 50px;animation:sweep 2.4s linear infinite}
+@keyframes sweep{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+.code{position:relative;font:700 clamp(5rem,22vmin,9rem)/1 Oswald,Impact,sans-serif}
+h1{margin:0;font:700 clamp(2rem,6vw,3rem)/1 Oswald,Impact,sans-serif;text-transform:uppercase}
+p{margin:.6rem auto 2rem;max-width:34ch;color:var(--smoke)}
+a{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;color:var(--bone);
+  font:500 1rem Oswald,sans-serif;letter-spacing:.04em;background:linear-gradient(180deg,#c81b1b,#9e0f0f);border:1px solid rgba(255,140,140,.35)}
+a:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.sweep{animation:none;stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<main>
+  <div class="leader" aria-hidden="true">
+    <svg viewBox="0 0 100 100"><circle class="ring" cx="50" cy="50" r="48"/><circle class="ring" cx="50" cy="50" r="36"/><path class="cross" d="M50 0V100M0 50H100"/><circle class="sweep" cx="50" cy="50" r="48" pathLength="100"/></svg>
+    <span class="code">404</span>
+  </div>
+  <h1>Scene not found</h1>
+  <p>This page didn't make the final cut. The link may be old or mistyped.</p>
+  <a href="/">Back to the site <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+</main>
+</body>
+</html>
